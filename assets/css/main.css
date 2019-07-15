@@ -98,6 +98,12 @@ input, select, textarea {
 	margin-left: 150px;
 }
 
+@media screen and (max-width: 980px) {
+	.bg_img {
+	margin-left: 0px;
+}
+}
+
 /* Menu */
 
 #click {
@@ -3486,10 +3492,6 @@ a {
 			#header {
 				padding: 4.5em 1.5em;
 			}
-
-				#header h1 br {
-					display: none;
-				}
 
 		/* Footer */
 
