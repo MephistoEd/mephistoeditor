@@ -140,7 +140,7 @@ input, select, textarea {
     -moz-transition: 0.5s;
     -ms-transition: 0.5s;
     -o-transition: 0.5s;
-    transition: 0.5s;
+    transition: 0s;
     -webkit-filter: grayscale(100%);
     filter: grayscale(100%);
 }
@@ -150,7 +150,7 @@ input, select, textarea {
     -moz-transition: 0.5s;
     -ms-transition: 0.5s;
     -o-transition: 0.5s;
-    transition: 0.5s;
+    transition: 0s;
     -webkit-filter: grayscale(0%);
     filter: grayscale(0%);
 }
