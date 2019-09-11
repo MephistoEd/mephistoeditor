@@ -1,35 +1,28 @@
-<!doctype html>
-<html>
-<head>
-   <meta http-equiv="Content-Type" content="text/html; charset=windows-1251" />
-   <title>Ваше сообщение отправлено!</title>
-</head>
- 
-<body>
- 
 <?php
-   $back = "<p><a href=\"javascript: history.back()\">Вернуться назад</a></p>";
- 
-   if(!empty($_POST['name']) and !empty($_POST['phone']) and !empty($_POST['mail']) 
-   and !empty($_POST['message'])){
-      $name = trim(strip_tags($_POST['name']));
-      $phone = trim(strip_tags($_POST['phone']));
-      $mail = trim(strip_tags($_POST['mail']));
-      $message = trim(strip_tags($_POST['message']));
- 
-      mail('почта_для_получения_сообщений@gmail.com', 'Письмо с адрес_вашего_сайта', 
-      'Вам написал: '.$name.'<br />Его номер: '.$phone.'<br />Его почта: '.$mail.'<br />
-      Его сообщение: '.$message,"Content-type:text/html;charset=windows-1251");
- 
-      echo "Ваше сообщение успешно отправлено!<Br> Вы получите ответ в 
-      ближайшее время<Br> $back";
- 
-      exit;
-   } 
-   else {
-      echo "Для отправки сообщения заполните все поля! $back";
-      exit;
-   }
+
+if(isset($_POST['submit'])){
+$to = "mephistoeditor@gmail.com";; 
+$from = $_POST['email']; 
+$first_name = $_POST['first_name'];
+$subject = "Форма отправки сообщений с сайта";
+$subject2 = "Copy of your form submission";
+$message = $first_name . " оставил сообщение:" . "\n\n" . $_POST['message'];
+$message2 = "Here is a copy of your message " . $first_name . "\n\n" . $_POST['message'];
+
+$headers = "From:" . $from;
+$headers2 = "From:" . $to;
+
+mail($to,$subject,$message,$headers);
+// mail($from,$subject2,$message2,$headers2); // sends a copy of the message to the sender - Отключено!
+echo "Сообщение отправлено. Спасибо Вам " . $first_name . ", мы скоро свяжемся с Вами.";
+echo "<br /><br /><a href='https://gorlenkov.tk'>Вернуться на сайт.</a>";
+
+}
+
 ?>
-</body>
-</html>
+
+<!--Переадресация на главную страницу сайта, через 3 секунды-->
+<script language="JavaScript" type="text/javascript">
+function changeurl(){eval(self.location="https://gorlenkov.tk");}
+window.setTimeout("changeurl();",3000);
+</script>
